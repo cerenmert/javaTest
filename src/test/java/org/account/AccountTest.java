@@ -1,5 +1,5 @@
-import org.account.Account;
-import org.account.AdvancedBankSystem;
+package org.account;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
