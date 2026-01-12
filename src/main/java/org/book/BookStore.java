@@ -1,4 +1,4 @@
-package com.ceren.bookstore;
+package org.book;
 
 import java.util.HashSet;
 import java.util.Set;
