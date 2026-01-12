@@ -5,10 +5,20 @@ import java.util.Map;
 
 public class AdvancedBankSystem extends Account {
     // In-memory database simülation
-    public static final Map<Integer, Account> database = new HashMap<>();
+    private static final Map<Integer, Account> database = new HashMap<>();
 
+    // Getter for database
+    public static Map<Integer, Account> getDatabase() {
+        return database;
+    }
+
+    public static void addAccount(int no, Account acc) {
+        database.put(no, acc);
+    }
+
+    // Parametrized Constructor
     public AdvancedBankSystem(int accountNo, double balance, String ownerName) {
-        super(accountNo, balance, ownerName );
+        super(accountNo, balance, ownerName);
     }
 
     // Para Yatırma Metodu (Deposit)
@@ -26,10 +36,10 @@ public class AdvancedBankSystem extends Account {
         if (acc != null) {
             if (acc.getBalance() >= amount) {
                 acc.setBalance(acc.getBalance() - amount);
-                System.out.println( acc.getOwnerName() + " adlı kişinin " + accountNo + " nolu hesabından " + amount + " TL çekildi.");
+                System.out.println(acc.getOwnerName() + " adlı kişinin " + accountNo + " nolu hesabından " + amount + " TL çekildi.");
             } else {
                 System.out.println("Hata: " + acc.getOwnerName() + " adlı kişinin " + accountNo + " nolu hesabı için yetersiz bakiye!");
-                System.out.println( amount+ " TL çekilemez");
+                System.out.println(amount + " TL çekilemez");
                 System.out.println("En fazla çekilebilecek tutar: " + acc.getBalance() + " TL");
             }
         }

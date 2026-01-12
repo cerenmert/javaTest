@@ -8,12 +8,11 @@ public class AccountTest {
     @Test
     public static void main(String[] args) {
         // First, populate the in-memory database with some accounts for testing
-        database.put(111, new Account(111, 5000.0, "Carol"));
-        database.put(222, new Account(222, 12500.0, "Bob"));
-        database.put(333, new Account(333, 400.0, "Dennis"));
+        addAccount(111, new Account(111, 5000.0, "Carol"));
+        addAccount(222, new Account(222, 12500.0, "Bob"));
+        addAccount(333, new Account(333, 400.0, "Dennis"));
         System.out.println("\nFirst Balances of Accounts:");
-        database.forEach((id, acc) -> System.out.println("No: " + id + " -> " + acc));
-
+        getDatabase().forEach((id, acc) -> System.out.println("No: " + id + " -> " + acc));
         System.out.println("\n--- Bank Operation Simulation ---");
 
         // 1. Para Yatırma İşlemi
@@ -30,6 +29,6 @@ public class AccountTest {
 
         // Son durumu göster
         System.out.println("\nLast Balances of Accounts:");
-        database.forEach((id, acc) -> System.out.println("No: " + id + " -> " + acc));
+        getDatabase().forEach((id, acc) -> System.out.println("No: " + id + " -> " + acc));
     }
 }
