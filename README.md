@@ -9,6 +9,9 @@ The project is organized into two main packages:
 -   **`org.account`**: Contains the banking system logic.
     -   `Account`: Represents a bank account with properties like balance and debt.
     -   `AdvancedBankSystem`: Manages accounts and operations (add, delete, deposit, withdraw, loan).
+-   **`org.product`**: Contains product management logic.
+    -   `Product`: Simple POJO for products.
+    -   `ProductDB`: Database simulation for products.
 -   **`org.example`**: Contains various Java examples demonstrating:
     -   Stream API usage (grouping, filtering).
     -   List manipulation (concatenation, sorting).
@@ -21,6 +24,10 @@ The project is organized into two main packages:
 -   **Account Management**: Create and delete accounts.
 -   **Transactions**: Deposit and withdraw funds.
 -   **Loan System**: Take loans with interest and pay them back.
+
+### Product Management
+-   **Product Database**: Manage products and prices.
+-   **Price Lookup**: Retrieve product prices efficiently.
 
 ### Java Examples
 -   Finding the longest string in a list.
@@ -44,7 +51,14 @@ mvn test
 
 ## Dependencies
 
--   **TestNG**: Used for unit testing the banking system.
+-   **TestNG** & **JUnit 5**: Used for unit testing (Project supports both, transitioning to JUnit 5 for new features).
+
+## Latest Changes (Product Management)
+
+A new package `org.product` has been added:
+-   **`Product`**: Represents a product with name and category.
+-   **`ProductDB`**: Simulates a product database using an in-memory `HashMap` to store products and their prices. It supports adding, retrieving, and removing products.
+-   **Tests**: `ProductTest` demonstrates the usage of `ProductDB` using **JUnit 5**.
 
 ## License
 
