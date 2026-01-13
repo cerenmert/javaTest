@@ -1,10 +1,11 @@
 # Java Test Project
 
-This project contains a simple banking system implementation and various Java stream/collection examples. It is a Maven-based project using TestNG for testing.
+This project contains a simple banking system implementation, product management implementation, student management implementation, and various Java stream/collection examples. 
+It is a Maven-based project using TestNG for testing.
 
 ## Project Structure
 
-The project is organized into two main packages:
+The project is organized into the following main packages:
 
 -   **`org.account`**: Contains the banking system logic.
     -   `Account`: Represents a bank account with properties like balance and debt.
@@ -12,6 +13,9 @@ The project is organized into two main packages:
 -   **`org.product`**: Contains product management logic.
     -   `Product`: Simple POJO for products.
     -   `ProductDB`: Database simulation for products.
+-   **`org.student`**: Contains student management logic.
+    -   `Student`: Represents a student with ID, name, and grade.
+    -   `StudentList`: Manages a collection of students with add/remove/fetch operations.
 -   **`org.example`**: Contains various Java examples demonstrating:
     -   Stream API usage (grouping, filtering).
     -   List manipulation (concatenation, sorting).
@@ -28,6 +32,11 @@ The project is organized into two main packages:
 ### Product Management
 -   **Product Database**: Manage products and prices.
 -   **Price Lookup**: Retrieve product prices efficiently.
+
+### Student System
+-   **Student List Management**: Add and remove students.
+-   **Bulk Operations**: Add multiple students at once.
+-   **Retrieval**: Fetch students by index or list all students.
 
 ### Java Examples
 -   Finding the longest string in a list.
@@ -51,14 +60,13 @@ mvn test
 
 ## Dependencies
 
--   **TestNG** & **JUnit 5**: Used for unit testing (Project supports both, transitioning to JUnit 5 for new features).
+-   **TestNG** 
 
-## Latest Changes (Product Management)
+## Latest Changes ( Student Management)
 
-A new package `org.product` has been added:
--   **`Product`**: Represents a product with name and category.
--   **`ProductDB`**: Simulates a product database using an in-memory `HashMap` to store products and their prices. It supports adding, retrieving, and removing products.
--   **Tests**: `ProductTest` demonstrates the usage of `ProductDB` using **JUnit 5**.
+A new package `org.student` has been added:
+-   **`Student`** and **`StudentList`**: Classes effectively manage student records.
+-   **Tests**: `StudentTest` ensures functionality using **TestNG**.
 
 ## License
 
