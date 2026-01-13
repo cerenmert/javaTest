@@ -23,4 +23,7 @@ public class ProductDB {
     public void removeProductFromDB(Product product) {
         productMap.remove(product);
     }
+    public Boolean containsProduct(Product product) {
+        return productMap.containsKey(product);
+    }
 }
