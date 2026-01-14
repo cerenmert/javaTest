@@ -2,7 +2,7 @@ package org.student;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private int studentId;
     private String name;
     private int grade;
@@ -58,5 +58,9 @@ public class Student {
                 '}';
     }
 
+    @Override
+    public int compareTo(Student o) {
+        return this.name.compareTo(o.name);
+    }
 }
 

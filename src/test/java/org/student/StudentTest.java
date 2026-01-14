@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class StudentTest {
 
@@ -57,26 +59,39 @@ public class StudentTest {
 
     @Test
     public void testGetStudent() {
-        Student fifthGradeStudent = new Student(595, "Chris Brown", 5);
-        Student sixthGradeStudent = new Student(596, "Jane Smith", 6);
-        Student seventhGradeStudent = new Student(597, "Tom Wilson", 7);
-        Student eighthGradeStudent = new Student(598, "Sara Lee", 8);
+        Student a = new Student(595, "Chris Brown", 5);
+        Student b = new Student(596, "Jane Smith", 4);
+        Student c = new Student(597, "Tom Wilson", 8);
+        Student d = new Student(598, "Sara Lee", 8);
+        Student e = new Student(599, "David Clark", 3);
+        Student f = new Student(600, "Jane Smith", 10);
         studentList.addStudentsToList(new ArrayList<>() {
             {
-                add(fifthGradeStudent);
-                add(sixthGradeStudent);
-                add(seventhGradeStudent);
-                add(eighthGradeStudent);
+                add(a);
+                add(b);
+                add(c);
+                add(d);
+                add(e);
+                add(f);
             }
         });
-        System.out.println(studentList.getStudentList());
+        System.out.println("first status: " + studentList.getStudentList());
 
         // Validate that all added students are correctly retrieved in order
-        Assert.assertEquals(studentList.getStudentList(), Arrays.asList(
-                fifthGradeStudent,
-                sixthGradeStudent,
-                seventhGradeStudent,
-                eighthGradeStudent), "The student list should match the added students in order.");
+        Assert.assertEquals(studentList.getStudentList(), Arrays.asList(a, b, c, d, e, f),
+                "The student list should match the added students in order.");
+
+        Collections.sort(studentList.getStudentList());
+        System.out.println("after Collections.sort: " + studentList.getStudentList());
+
+        // Diyelim ki bazen isme göre, bazen nota göre sıralamak istiyoruz. Comparable (compareTo) kullandığımızda
+        // kuralı sınıfa gömmüş oluruz. Comparator.comparingInt ise bize dışarıdan kural belirleme şansı verir
+        studentList.getStudentList().sort(Comparator.comparingInt(Student::getGrade));
+        System.out.println("after using Comparator: " + studentList.getStudentList());
+
+        //null verirsek Student classındaki compareTo (Comparable) kuralını kullanır. name'e göre sıralar
+        studentList.getStudentList().sort(null);
+        System.out.println("after using sort(null): " + studentList.getStudentList());
     }
 
 }
